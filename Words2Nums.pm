@@ -1,6 +1,6 @@
 package Lingua::PT::Words2Nums;
 
-use 5.008;
+use 5.006;
 use strict;
 use warnings;
 
@@ -18,7 +18,7 @@ our @EXPORT = qw(
 	word2num
 );
 
-our $VERSION = '1.02';
+our $VERSION = '1.03';
 
 =head1 NAME
 
