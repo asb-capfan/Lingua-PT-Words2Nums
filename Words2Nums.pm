@@ -18,7 +18,7 @@ our @EXPORT = qw(
 	word2num
 );
 
-our $VERSION = '1.00';
+our $VERSION = '1.01';
 
 =head1 NAME
 
@@ -33,11 +33,17 @@ Lingua::PT::Words2Nums - Converts Portuguese words to numbers
 
 =head1 DESCRIPTION
 
-Words2Nums converts Portuguese words to numbers.
+Words2Nums converts Portuguese words to numbers (works with numbers
+ranging from 0 to 999.999.999.999.999.999).
+
+Not all possible ways to write a number have been implemented (some
+people write "nove mil novecentos e um", some people write "nove mil,
+novecentos e um"; Words2Nums currently supports only the first way,
+without commas; also, the word "bilião" is supported, but not "bilhão").
 
 =cut
 
-my (%values,@values);
+my (%values,@values,%bigvalues,@bigvalues);
 
 BEGIN {
   %values = (
@@ -88,31 +94,38 @@ BEGIN {
 
   @values = sort {$values{$b} <=> $values{$a}} keys %values;
 
+  %bigvalues = (
+    bili => 1000000000000,
+    milh => 1000000,
+  );
+
+  @bigvalues = sort {$bigvalues{$b} <=> $bigvalues{$a}} keys %bigvalues;
+
 }
 
 sub word2num {
   $_ = shift || return undef;
   my $result = 0;
 
-  if (s/(.+)(?:biliões|bilião)//) {
-    my $bil = $1;
-    for my $value (@values) {
-      $bil =~ s/$value/$result += ($values{$value} * 1000000000000)/e;
-    } 
-  }
+  for my $val (@bigvalues) {
+    my $expr = "${val}ões|${val}ão";
 
-  if (s/(.+)mil(?=.*(?:milhões|milhão))//) {
-    my $milmil = $1;
-    for my $value (@values) {
-      $milmil =~ s/$value/$result += ($values{$value} * 1000000000)/e;
+    if (s/(.+)mil(?=.*(?:$expr))//) {
+      my $big = $1;
+      for my $value (@values) {
+        $big =~ s/$value/
+                  $result += ($values{$value} * $bigvalues{$val} * 1000)/e;
+      }
     }
-  }
 
-  if (s/(.+)(?:milhões|milhão)//) {
-    my $mil = $1;
-    for my $value (@values) {
-      $mil =~ s/$value/$result += ($values{$value} * 1000000)/e;
+    if (s/(.+)(?:$expr)//) {
+      my $sma = $1;
+      for my $value (@values) {
+        $sma =~ s/$value/
+                  $result += ($values{$value} * $bigvalues{$val})/e;
+      } 
     }
+
   }
 
   if (s/(.+?)mil//) {
@@ -131,21 +144,21 @@ sub word2num {
     s/$value/$result += $values{$value}/e;
   }
 
-  $result
+  $result;
 }
 
 1;
 __END__
 
-=head1 WARNING
+=head1 MESSAGE FROM THE AUTHOR
 
-The current version of Words2Nums works with numbers ranging from 0 to 999999999999999. This will be enhanced soon.
-
-Not all possible ways to write a numbers have been tested.
+If you're using this module, please drop me a line to my e-mail. Tell
+me what you're doing with it. Also, feel free to suggest new
+bugs^H^H^H^H^H features O:-)
 
 =head1 AUTHOR
 
-Jose Alves de Castro, E<lt>jac@localdomainE<gt>
+Jose Alves de Castro, E<lt>cog [at] cpan [dot] org<gt>
 
 =head1 COPYRIGHT AND LICENSE
 

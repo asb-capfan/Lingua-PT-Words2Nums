@@ -1,16 +1,20 @@
-Lingua/PT/Words2Nums version 0.01
+Lingua/PT/Words2Nums version 1.00
 =================================
 
-The README is used to introduce the module and provide instructions on
-how to install the module, any machine dependencies it may have (for
-example C compilers and installed libraries) and any other information
-that should be provided before the module is installed.
+Converts Portuguese words to numbers.
 
-A README file is required for CPAN modules since CPAN extracts the
-README file from a module distribution so that people browsing the
-archive can use it get an idea of the modules uses. It is usually a
-good idea to provide version information here so that people can
-decide whether fixes for the module are worth downloading.
+  use Lingua::PT::Words2Nums;
+
+  $result = num2word("cinco");
+  # $result now holds 5
+
+(works up to 999.999.999.999.999.999; does not support negative numbers)
+
+Not all possible ways to write a number have been implemented (some
+people write "nove mil novecentos e um", some people write "nove mil,
+novecentos e um"; Words2Nums currently supports only the first way,
+without commas; also, the word "bilião" is supported, but not "bilhão").
+
 
 INSTALLATION
 
@@ -23,13 +27,13 @@ To install this module type the following:
 
 DEPENDENCIES
 
-This module requires these other modules and libraries:
+No dependencies
 
-  blah blah blah
+SEE ALSO
+
+The POD documentation in Words2Nums.pm
 
 COPYRIGHT AND LICENCE
-
-Put the correct copyright and licence information here.
 
 Copyright (C) 2004 Jose Alves de Castro
 

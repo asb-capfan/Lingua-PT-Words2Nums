@@ -5,7 +5,7 @@
 
 # change 'tests => 1' to 'tests => last_test_to_print';
 
-use Test::More tests => 86;
+use Test::More tests => 87;
 BEGIN { use_ok('Lingua::PT::Words2Nums') };
 
 #########################
@@ -106,6 +106,7 @@ is(word2num('seiscentos e sessenta e seis biliões seiscentos e sessenta e seis m
 is(word2num('setecentos biliões e sete'),700000000000007);
 is(word2num('oitocentos e oitenta e um biliões duzentos e trinta e quatro mil quinhentos e noventa e nove milhões novecentos e noventa e nove mil novecentos e noventa e nove'),881234599999999);
 is(word2num('novecentos e noventa e nove biliões novecentos e noventa e nove mil novecentos e noventa e nove milhões novecentos e noventa e nove mil novecentos e noventa e nove'),999999999999999);
+is(word2num('novecentos e noventa e nove mil novecentos e noventa e nove biliões novecentos e noventa e nove mil novecentos e noventa e nove milhões novecentos e noventa e nove mil novecentos e noventa e nove'),999999999999999999);
 
 TODO: {
 
