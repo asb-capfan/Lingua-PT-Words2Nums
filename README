@@ -1,41 +1,39 @@
-Lingua/PT/Words2Nums version 1.03
+Lingua/PT/Words2Nums version 1.04
 =================================
 
-Converts Portuguese words to numbers.
+Lingua::PT::Words2Nums - Converts Portuguese words to numbers
+
+=head1 SYNOPSIS
 
   use Lingua::PT::Words2Nums;
 
   $result = num2word("cinco");
   # $result now holds 5
 
-(works up to 999.999.999.999.999.999; does not support negative numbers)
+=head1 DESCRIPTION
+
+Words2Nums converts Portuguese words to numbers (works with numbers
+ranging from 0 to 999.999.999.999.999.999).
 
 Not all possible ways to write a number have been implemented (some
 people write "nove mil novecentos e um", some people write "nove mil,
 novecentos e um"; Words2Nums currently supports only the first way,
 without commas; also, the word "bilião" is supported, but not "bilhão").
 
-INSTALLATION
+=head1 SEE ALSO
 
-To install this module type the following:
+More tools for the Portuguese language processing can be found at the
+Natura project: http://natura.di.uminho.pt
 
-   perl Makefile.PL
-   make
-   make test
-   make install
+=head1 AUTHOR
 
-DEPENDENCIES
+Jose Castro, C<< <cog@cpan.org> >>
 
-No dependencies
+=head1 COPYRIGHT & LICENSE
 
-SEE ALSO
+Copyright 2004 Jose Castro, All Rights Reserved.
 
-The POD documentation in Words2Nums.pm
+This program is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.
 
-COPYRIGHT AND LICENCE
-
-Copyright (C) 2004 Jose Alves de Castro
-
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself. 
-
+=cut

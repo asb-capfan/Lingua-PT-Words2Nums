@@ -15,10 +15,9 @@ our %EXPORT_TAGS = ( 'all' => [ qw(
 our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 
 our @EXPORT = qw(
-	word2num
 );
 
-our $VERSION = '1.03';
+our $VERSION = '1.04';
 
 =head1 NAME
 
@@ -26,7 +25,7 @@ Lingua::PT::Words2Nums - Converts Portuguese words to numbers
 
 =head1 SYNOPSIS
 
-  use Lingua::PT::Words2Nums;
+  use Lingua::PT::Words2Nums qw/word2num/;
 
   $result = num2word("cinco");
   # $result now holds 5
@@ -103,6 +102,15 @@ BEGIN {
 
 }
 
+=head2 word2num
+
+Turns a word into a number
+
+  $result = num2word("cinco");
+  # $result now holds 5
+
+=cut
+
 sub word2num {
   $_ = shift || return undef;
   my $result = 0;
@@ -150,19 +158,28 @@ sub word2num {
 1;
 __END__
 
+=head1 TO DO
+
+=over 6
+
+=item Implement function is_number()
+
+=back
+
 =head1 SEE ALSO
 
-http://natura.di.uminho.pt (Project for Portuguese Natural Language Processing)
+More tools for the Portuguese language processing can be found at the
+Natura project: http://natura.di.uminho.pt
 
 =head1 AUTHOR
 
-Jose Alves de Castro, E<lt>cog [at] cpan [dot] org<gt>
+Jose Castro, C<< <cog@cpan.org> >>
 
-=head1 COPYRIGHT AND LICENSE
+=head1 COPYRIGHT & LICENSE
 
-Copyright 2004 by Jose Alves de Castro
+Copyright 2004 Jose Castro, All Rights Reserved.
 
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself. 
+This program is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.
 
 =cut
