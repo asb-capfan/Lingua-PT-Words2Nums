@@ -18,7 +18,7 @@ our @EXPORT = qw(
 	word2num
 );
 
-our $VERSION = '1.01';
+our $VERSION = '1.02';
 
 =head1 NAME
 
@@ -150,11 +150,9 @@ sub word2num {
 1;
 __END__
 
-=head1 MESSAGE FROM THE AUTHOR
+=head1 SEE ALSO
 
-If you're using this module, please drop me a line to my e-mail. Tell
-me what you're doing with it. Also, feel free to suggest new
-bugs^H^H^H^H^H features O:-)
+http://natura.di.uminho.pt (Project for Portuguese Natural Language Processing)
 
 =head1 AUTHOR
 

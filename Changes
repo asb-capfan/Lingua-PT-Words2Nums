@@ -1,5 +1,8 @@
 Revision history for Perl extension Lingua::PT::Words2Nums.
 
+1.02  Thu Sep  16 22:06:00 2004
+	- added META.yml
+
 1.01  Tue May  14 00:47:00 2004
 	- working with numbers up to 999.999.999.999.999.999
 	- rearrenged a part of the code
