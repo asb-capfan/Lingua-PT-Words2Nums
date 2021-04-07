@@ -19,6 +19,8 @@ our @EXPORT = qw(
 
 our $VERSION = '1.04';
 
+=encoding latin1
+
 =head1 NAME
 
 Lingua::PT::Words2Nums - Converts Portuguese words to numbers
