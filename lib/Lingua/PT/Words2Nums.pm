@@ -34,12 +34,12 @@ Lingua::PT::Words2Nums - Converts Portuguese words to numbers
 
 =head1 DESCRIPTION
 
-Words2Nums converts Portuguese words to numbers (works with numbers
+C<Lingua::PT::Words2Nums> converts Portuguese words to numbers (works with numbers
 ranging from 0 to 999.999.999.999.999.999).
 
 Not all possible ways to write a number have been implemented (some
 people write "nove mil novecentos e um", some people write "nove mil,
-novecentos e um"; Words2Nums currently supports only the first way,
+novecentos e um"; C<Lingua::PT::Words2Nums> currently supports only the first way,
 without commas; also, the word "bilião" is supported, but not "bilhão").
 
 =cut
@@ -164,14 +164,14 @@ __END__
 
 =over 6
 
-=item Implement function is_number()
+=item * Implement function is_number()
 
 =back
 
 =head1 SEE ALSO
 
 More tools for the Portuguese language processing can be found at the
-Natura project: http://natura.di.uminho.pt
+Natura project: L<http://natura.di.uminho.pt>
 
 =head1 AUTHOR
 
