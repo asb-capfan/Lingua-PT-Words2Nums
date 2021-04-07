@@ -1,7 +1,7 @@
 Changes
 Makefile.PL
 MANIFEST
-README
+README.md
 lib/Lingua/PT/Words2Nums.pm
 t/01-conversion_0_10000.t
 t/02-conversion_10001_999999.t
