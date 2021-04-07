@@ -4,7 +4,7 @@ use ExtUtils::MakeMaker;
 # the contents of the Makefile that is written.
 WriteMakefile(
     'NAME'		=> 'Lingua::PT::Words2Nums',
-    'VERSION_FROM'	=> 'Words2Nums.pm', # finds $VERSION
+    'VERSION_FROM'	=> 'lib/Lingua/PT/Words2Nums.pm', # finds $VERSION
     'PREREQ_PM'		=> {}, # e.g., Module::Name => 1.1
     ($] >= 5.005 ?    ## Add these new keywords supported since 5.005
       (AUTHOR     => 'Jose Alves de Castro <cog@cpan.org>') : ()),
